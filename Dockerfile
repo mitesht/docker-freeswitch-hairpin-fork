@@ -1,8 +1,12 @@
 FROM drachtio/drachtio-freeswitch-base:latest
 
-COPY ./entrypoint.sh /
+RUN apt-get update && apt-get install -y vim dnsutils
 
-VOLUME ["/usr/local/freeswitch/log","/usr/local/freeswitch/sounds","/usr/local/freeswitch/recordings"]
+COPY ./entrypoint.sh /
+COPY 00_test.xml /usr/local/freeswitch/conf/dialplan/public/
+
+RUN mkdir -p /usr/local/freeswitch/conf
+VOLUME ["/usr/local/freeswitch/log","/usr/local/freeswitch/sounds","/usr/local/freeswitch/recordings","/usr/local/freeswitch/conf"]
 
 ENV PATH="/usr/local/freeswitch/bin:${PATH}"
 

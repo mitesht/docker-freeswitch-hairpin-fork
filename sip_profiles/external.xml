@@ -18,6 +18,9 @@
 
   <settings>
     <param name="debug" value="0"/>
+    <param name="rtcp-audio-interval-msec" value="5000"/>
+    <param name="session-timeout"  value="0"/>
+    <param name="enable-timer" value="false"/>
     <!-- If you want FreeSWITCH to shutdown if this profile fails to load, uncomment the next line. -->
     <!-- <param name="shutdown-on-fail" value="true"/> -->
     <param name="sip-trace" value="yes"/>
@@ -52,7 +55,7 @@
     <!--<param name="force-register-db-domain" value="$${domain}"/>-->
     <!-- ************************************************* -->
 
-    <!--<param name="aggressive-nat-detection" value="true"/>-->
+    <param name="aggressive-nat-detection" value="true"/>
     <param name="inbound-codec-negotiation" value="generous"/>
     <param name="nonce-ttl" value="60"/>
     <param name="auth-calls" value="false"/>
@@ -63,8 +66,8 @@
     -->
     <param name="rtp-ip" value="$${local_ip_v4}"/>
     <param name="sip-ip" value="$${local_ip_v4}"/>
-    <param name="ext-rtp-ip" value="auto-nat"/>
-    <param name="ext-sip-ip" value="auto-nat"/>
+    <param name="ext-rtp-ip" value="$${external_rtp_ip}"/>
+    <param name="ext-sip-ip" value="$${external_sip_ip}"/>
     <param name="rtp-timeout-sec" value="300"/>
     <param name="rtp-hold-timeout-sec" value="1800"/>
     <!--<param name="enable-3pcc" value="true"/>-->

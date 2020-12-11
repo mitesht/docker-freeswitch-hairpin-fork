@@ -1,0 +1,14 @@
+<include>
+  <extension name="test">
+    <condition>
+      <action application="info"/>
+      <action application="set" data="ringback=%(2000, 4000, 440.0, 480.0)"/>
+      <action application="ring_ready"/>
+      <action application="sleep" data="1000"/>
+      <action application="answer"/>
+      <action application="playback" data="tone_stream://%(1850,4150,475,425);loops=10000" />
+      <action application="hangup" data="NORMAL_CLEARING"/>
+    </condition>
+  </extension>
+</include>
+

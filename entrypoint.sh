@@ -38,7 +38,21 @@ while :; do
 
   --ext-rtp-ip)
     if [ -n "$2" ]; then
-      sed -i -e "s/ext_rtp_ip=.*\"/ext_rtp_ip=$2\"/g" /usr/local/freeswitch/conf/vars_diff.xml
+      sed -i -e "s/external_rtp_ip=.*\"/external_rtp_ip=$2\"/g" /usr/local/freeswitch/conf/vars_diff.xml
+    fi
+    ;;
+
+  --ext-sip-ip)
+    if [ -n "$2" ]; then
+      sed -i -e "s/external_sip_ip=.*\"/external_sip_ip=$2\"/g" /usr/local/freeswitch/conf/vars_diff.xml
+      sed -i -e "s/bind_server_ip=.*\"/bind_server_ip=$2\"/g" /usr/local/freeswitch/conf/vars_diff.xml
+    fi
+    ;;
+
+  --codecs)
+    if [ -n "$2" ]; then
+      sed -i -e "s/global_codec_prefs=.*\"/global_codec_prefs=$2\"/g" /usr/local/freeswitch/conf/vars_diff.xml
+      sed -i -e "s/outbound_codec_prefs=.*\"/outbound_codec_prefs=$2\"/g" /usr/local/freeswitch/conf/vars_diff.xml
     fi
     ;;
 
